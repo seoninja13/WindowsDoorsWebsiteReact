@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Window World Colors */
+  --ww-blue: 0, 75, 141;
+  --ww-light-blue: 0, 119, 200;
+  --ww-red: 227, 24, 55;
+  --ww-dark-blue: 0, 51, 102;
+  --ww-light-gray: 245, 245, 245;
+  --ww-gray: 224, 224, 224;
+  --ww-dark-gray: 51, 51, 51;
+  --ww-footer-bg: 26, 26, 26;
+}
+
+@layer base {
+  html {
+    @apply scroll-smooth;
+  }
+
+  body {
+    @apply font-open-sans text-ww-dark-gray bg-white;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-montserrat font-bold;
+  }
+
+  h1 {
+    @apply text-heading-xl;
+  }
+
+  h2 {
+    @apply text-heading-lg;
+  }
+
+  h3 {
+    @apply text-heading-md;
+  }
+
+  h4 {
+    @apply text-heading-sm;
+  }
+
+  a {
+    @apply text-ww-blue hover:text-ww-dark-blue transition-colors duration-200;
+  }
+}
+
+@layer components {
+  /* Button Components */
+  .btn {
+    @apply inline-flex items-center justify-center font-montserrat font-medium rounded-ww transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2;
+  }
+
+  .btn-primary {
+    @apply btn bg-ww-blue text-white px-6 py-3 hover:bg-ww-dark-blue focus:ring-ww-blue;
+  }
+
+  .btn-secondary {
+    @apply btn bg-ww-red text-white px-6 py-3 hover:bg-[#c31530] focus:ring-ww-red;
+  }
+
+  .btn-outline {
+    @apply btn border-2 border-ww-blue text-ww-blue px-6 py-[10px] hover:bg-ww-blue hover:text-white focus:ring-ww-blue;
+  }
+
+  .btn-white {
+    @apply btn bg-white text-ww-blue px-6 py-3 hover:bg-ww-light-gray focus:ring-white;
+  }
+
+  .btn-sm {
+    @apply px-4 py-2 text-sm;
+  }
+
+  .btn-lg {
+    @apply px-8 py-4 text-lg;
+  }
+
+  /* Container */
+  .container-ww {
+    @apply max-w-ww-container mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  /* Card Components */
+  .card {
+    @apply bg-white rounded-ww-lg shadow-ww overflow-hidden;
+  }
+
+  .card-hover {
+    @apply transition-shadow duration-200 hover:shadow-ww-lg;
+  }
+
+  /* Form Components */
+  .form-input {
+    @apply w-full rounded-ww border-ww-gray px-4 py-2 focus:outline-none focus:ring-2 focus:ring-ww-blue focus:border-transparent;
+  }
+
+  .form-label {
+    @apply block text-ww-dark-gray font-medium mb-2;
+  }
+
+  .form-select {
+    @apply w-full rounded-ww border-ww-gray px-4 py-2 focus:outline-none focus:ring-2 focus:ring-ww-blue focus:border-transparent;
+  }
+
+  .form-checkbox {
+    @apply rounded-sm text-ww-blue focus:ring-ww-blue;
+  }
+
+  /* Section Components */
+  .section {
+    @apply py-ww-section;
+  }
+
+  .section-sm {
+    @apply py-12;
+  }
+
+  .section-lg {
+    @apply py-24;
+  }
+}
