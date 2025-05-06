@@ -45,8 +45,7 @@ os.makedirs(CACHE_DIR, exist_ok=True)
 # Global browser configuration
 browser_config = BrowserConfig(
     headless=True,  # Run browser in headless mode
-    verbose=True,   # Enable verbose logging
-    base_directory=CACHE_DIR  # Set cache directory
+    verbose=True    # Enable verbose logging
 )
 
 # Helper function to run async code
@@ -65,9 +64,9 @@ def context7_api():
         data = request.json
         operation = data.get('operation')
         operation_data = data.get('data', {})
-        
+
         logger.info(f"Received operation: {operation}")
-        
+
         if operation == 'extractUrls':
             return extract_urls(operation_data)
         elif operation == 'extractContent':
@@ -78,7 +77,7 @@ def context7_api():
             return extract_structure(operation_data)
         else:
             return jsonify({'error': f'Unsupported operation: {operation}'}), 400
-    
+
     except Exception as e:
         logger.error(f"Error processing request: {str(e)}", exc_info=True)
         return jsonify({'error': str(e)}), 500
@@ -87,12 +86,12 @@ def extract_urls(data):
     """Extract URLs from a website."""
     base_url = data.get('baseUrl')
     max_pages = data.get('maxPages', 100)
-    
+
     if not base_url:
         return jsonify({'error': 'baseUrl is required'}), 400
-    
+
     logger.info(f"Extracting URLs from {base_url} (max pages: {max_pages})")
-    
+
     # Configure the crawler for URL extraction
     async def crawl_urls():
         run_config = CrawlerRunConfig(
@@ -101,22 +100,22 @@ def extract_urls(data):
             # Enable link extraction
             extract_links=True
         )
-        
+
         async with AsyncWebCrawler(config=browser_config) as crawler:
             result = await crawler.arun(
                 url=base_url,
                 config=run_config
             )
-            
+
             # Extract all URLs from the links dictionary
             urls = []
             if result.links and 'all' in result.links:
                 for link_info in result.links['all']:
                     if 'url' in link_info:
                         urls.append(link_info['url'])
-            
+
             return urls
-    
+
     try:
         urls = run_async(crawl_urls())
         return jsonify({
@@ -131,12 +130,12 @@ def extract_urls(data):
 def extract_content(data):
     """Extract content from a URL, including taking a screenshot."""
     url = data.get('url')
-    
+
     if not url:
         return jsonify({'error': 'url is required'}), 400
-    
+
     logger.info(f"Extracting content from {url}")
-    
+
     # Configure the crawler for content extraction with screenshot
     async def crawl_content():
         run_config = CrawlerRunConfig(
@@ -152,13 +151,13 @@ def extract_content(data):
                 )
             )
         )
-        
+
         async with AsyncWebCrawler(config=browser_config) as crawler:
             result = await crawler.arun(
                 url=url,
                 config=run_config
             )
-            
+
             # Process the result
             content = {
                 'title': result.metadata.get('title', '') if result.metadata else '',
@@ -166,26 +165,26 @@ def extract_content(data):
                 'markdown': result.markdown.fit_markdown if hasattr(result.markdown, 'fit_markdown') else str(result.markdown),
                 'html': result.cleaned_html or result.html,
             }
-            
+
             # Save screenshot if available
             if result.screenshot:
                 # Generate a filename based on the URL
                 filename = f"{base64.urlsafe_b64encode(url.encode()).decode()[:10]}.png"
                 filepath = os.path.join(SCREENSHOT_DIR, filename)
-                
+
                 # Save the screenshot to disk
                 with open(filepath, 'wb') as f:
                     f.write(base64.b64decode(result.screenshot))
-                
+
                 # Add screenshot info to content
                 content['screenshot'] = {
                     'path': filepath,
                     'url': f"/screenshots/{filename}",
                     'data': result.screenshot  # Base64-encoded screenshot data
                 }
-            
+
             return content
-    
+
     try:
         content = run_async(crawl_content())
         return jsonify({
@@ -199,12 +198,12 @@ def extract_content(data):
 def extract_images(data):
     """Extract images from a URL."""
     url = data.get('url')
-    
+
     if not url:
         return jsonify({'error': 'url is required'}), 400
-    
+
     logger.info(f"Extracting images from {url}")
-    
+
     # Configure the crawler for image extraction
     async def crawl_images():
         run_config = CrawlerRunConfig(
@@ -212,22 +211,22 @@ def extract_images(data):
             # Enable media extraction (images)
             extract_media=True
         )
-        
+
         async with AsyncWebCrawler(config=browser_config) as crawler:
             result = await crawler.arun(
                 url=url,
                 config=run_config
             )
-            
+
             # Extract all image URLs from the media dictionary
             images = []
             if result.media and 'images' in result.media:
                 for image_info in result.media['images']:
                     if 'url' in image_info:
                         images.append(image_info['url'])
-            
+
             return images
-    
+
     try:
         images = run_async(crawl_images())
         return jsonify({
@@ -242,12 +241,12 @@ def extract_images(data):
 def extract_structure(data):
     """Extract site structure from a URL."""
     base_url = data.get('baseUrl')
-    
+
     if not base_url:
         return jsonify({'error': 'baseUrl is required'}), 400
-    
+
     logger.info(f"Extracting structure from {base_url}")
-    
+
     # Configure the crawler for structure extraction
     async def crawl_structure():
         run_config = CrawlerRunConfig(
@@ -257,19 +256,19 @@ def extract_structure(data):
             # Limit depth to get main navigation
             max_depth=2
         )
-        
+
         async with AsyncWebCrawler(config=browser_config) as crawler:
             result = await crawler.arun(
                 url=base_url,
                 config=run_config
             )
-            
+
             # Process links to create a site structure
             structure = {
                 'navigation': [],
                 'sections': []
             }
-            
+
             if result.links and 'all' in result.links:
                 # Group links by their path depth
                 nav_links = []
@@ -278,7 +277,7 @@ def extract_structure(data):
                         # Extract path from URL
                         path = link_info['url'][len(base_url):].strip('/')
                         depth = len(path.split('/')) if path else 0
-                        
+
                         # Main navigation links are typically at depth 1
                         if depth == 1:
                             nav_links.append({
@@ -286,11 +285,11 @@ def extract_structure(data):
                                 'text': link_info.get('text', path),
                                 'path': path
                             })
-                
+
                 structure['navigation'] = nav_links
-            
+
             return structure
-    
+
     try:
         structure = run_async(crawl_structure())
         return jsonify({
@@ -326,6 +325,6 @@ def health_check():
 if __name__ == '__main__':
     # Get port from environment variable or use default
     port = int(os.environ.get('PORT', 3001))
-    
+
     logger.info(f"Starting Crawl4AI server on port {port}")
     app.run(host='0.0.0.0', port=port, debug=True)

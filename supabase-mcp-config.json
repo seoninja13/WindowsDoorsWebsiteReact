@@ -1,0 +1,19 @@
+{
+  "mcpServers": {
+    "supabase-mcp-server": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@smithery/cli@latest",
+        "run",
+        "@alexander-zuev/supabase-mcp-server",
+        "--key",
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Ind6b2hkY3pmZnBnbnBqZWhoZm5iIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDY1MDAxNjUsImV4cCI6MjA2MjA3NjE2NX0.3ozVyuTi0JjX16sBQokvwME0p02BVdpd_uryznfvKxk",
+        "--profile",
+        "wzohdczffpgnpjehhfnb",
+        "--url",
+        "https://wzohdczffpgnpjehhfnb.supabase.co"
+      ]
+    }
+  }
+}

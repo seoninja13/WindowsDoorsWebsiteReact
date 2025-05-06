@@ -1,0 +1,15 @@
+{
+  "totalPages": 0,
+  "totalScreenshots": 0,
+  "totalComponents": 0,
+  "totalImages": 0,
+  "pageTypes": {},
+  "componentTypes": {},
+  "imageTypes": {},
+  "urlStructure": {
+    "/": "Home"
+  },
+  "missingPages": [],
+  "missingComponents": [],
+  "missingImages": []
+}

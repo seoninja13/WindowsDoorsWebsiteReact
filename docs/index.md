@@ -19,10 +19,14 @@ This directory contains all the documentation for the Windows Doors Website Reac
 - [Overview](./overview.md) - Core technical details of the Next.js application
 - [Requirements](./requirements.md) - Current project requirements
 - [Crawl4AI Analysis](./crawl4ai-analysis.md) - Analysis of Window World LA website structure
+- [Crawl4AI Completion Analysis](./crawl4ai-completion-analysis.md) - Analysis of completed Crawl4AI process
 - [UI Components and Design System](./ui-components.md) - Documentation of UI components and design system
 - [Web Scraping](./web-scraping.md) - Web scraping functionality using Context7 MCP server
+- [Logging System](./logging-system.md) - Comprehensive logging system documentation
 - [Documentation Map](./documentation-map.md) - Comprehensive map of all documentation
-- [Daily Log](./daily-log.md) - Daily development updates
+- [Documentation Updates](./documentation-updates.md) - Summary of recent documentation updates
+- [Daily Logs](./daily-logs/index.md) - Daily development updates
+- [Project Structure](./project-structure.md) - Project directory structure and organization
 - [Project Tasks](./project-tasks.md) - Current project tasks and priorities
 - [Priority List](./priority-list.md) - Prioritized list of tasks
 
@@ -56,7 +60,12 @@ docs/
 ├── overview.md
 ├── requirements.md
 ├── documentation-map.md
-├── daily-log.md
+├── documentation-updates.md
+├── crawl4ai-completion-analysis.md
+├── daily-logs/
+│   ├── index.md
+│   └── 2025-05-06-crawl4ai-screenshots.md
+├── project-structure.md
 ├── project-tasks.md
 ├── priority-list.md
 ├── architecture/
@@ -64,7 +73,8 @@ docs/
 │   ├── website-architecture.md
 │   ├── seo-structure.md
 │   ├── data-flow.md
-│   └── component-architecture.md
+│   ├── component-architecture.md
+│   └── crawl4ai-screenshot-architecture.md
 ├── features/
 │   ├── index.md
 │   ├── product-catalog.md
@@ -85,4 +95,4 @@ docs/
 - [Main README](../README.md) - Main project documentation and entry point
 - [Documentation Map](./documentation-map.md) - Comprehensive map of all documentation
 
-Last Updated: May 5, 2025
+Last Updated: May 6, 2025

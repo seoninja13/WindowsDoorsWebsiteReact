@@ -1,8 +1,10 @@
 # Crawl4AI Implementation for Windows Doors Website
 
-**Date**: 2025-05-05  
-**Author**: Cascade AI  
-**Version**: 1.0.0  
+> **Breadcrumb Navigation**: [README.md](../../README.md) > [Documentation](../index.md) > [Web Scraping](../web-scraping.md) > Crawl4AI Implementation
+
+**Date**: 2025-05-06
+**Author**: Cascade AI
+**Version**: 1.1.0
 
 ## Overview
 
@@ -163,16 +165,52 @@ python deep_crawler.py --max-pages 10 --rate-limit 3
 ```
 
 Parameters:
-- `--max-pages`: Maximum number of pages to crawl (default: 100)
+- `--max-pages`: Maximum number of pages to crawl (default: unlimited)
 - `--rate-limit`: Seconds between requests (default: 2)
+
+### Comprehensive Crawling
+
+For a comprehensive crawl of the entire website:
+
+```bash
+npm run crawl:comprehensive
+```
+
+This will crawl the entire website with no page limit, taking screenshots of all pages and extracting all content, components, and navigation structure.
+
+### Crawl Results
+
+As of May 6, 2025, we have successfully completed a comprehensive crawl of the Window World LA website with the following results:
+
+```json
+{
+  "startTime": "2025-05-06T19:54:39.581Z",
+  "pagesCrawled": 199,
+  "screenshotsTaken": 199,
+  "failedPages": 1,
+  "totalLinksFound": 6115,
+  "totalImagesFound": 547,
+  "componentsIdentified": 656,
+  "endTime": "2025-05-06T20:30:01.912Z",
+  "durationSeconds": 2122.331
+}
+```
+
+For a detailed analysis of the crawl results, see the [Crawl4AI Completion Analysis](../crawl4ai-completion-analysis.md) document.
 
 ### Accessing Results
 
 Screenshots are saved to:
-- `crawl4ai-server/crawl_results/screenshots/[path]/screenshot.png`
+- `public/crawled-data/screenshots/[path]/[filename].png`
 
 Content and metadata are saved to:
-- `crawl4ai-server/crawl_results/content/[path]/`
+- `public/crawled-data/pages.json`: Contains all the extracted page content
+- `public/crawled-data/images.json`: Contains metadata for all extracted images
+- `public/crawled-data/site-structure.json`: Contains the site structure including navigation
+- `public/crawled-data/components/[path]/components.json`: Contains UI components extracted from each page
+
+Crawl statistics are saved to:
+- `public/crawled-data/crawl-stats.json`: Contains statistics about the crawl process
 
 ## Future Enhancements
 

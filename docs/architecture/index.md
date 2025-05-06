@@ -8,6 +8,7 @@ This directory contains documentation related to the system architecture of the 
 
 ## Documentation
 
+### Core Architecture
 - [Website Architecture](./website-architecture.md) - System architecture and component diagrams
 - [SEO Structure](./seo-structure.md) - SEO optimization strategy
 - [Data Flow](./data-flow.md) - How data flows through the system
@@ -15,6 +16,9 @@ This directory contains documentation related to the system architecture of the 
 - [URL Structure](./url-structure.md) - URL structure and routing
 - [Sitemap Generation](./sitemap-generation.md) - Sitemap generation and configuration
 - [Metadata Management](./metadata-management.md) - Metadata management strategy
+
+### Web Scraping Architecture
+- [Crawl4AI Screenshot Architecture](./crawl4ai-screenshot-architecture.md) - Architecture and implementation of the screenshot functionality in Crawl4AI
 
 ## Key Architectural Decisions
 
@@ -49,4 +53,4 @@ When contributing to the architecture documentation:
 3. Update the [Documentation Map](../documentation-map.md) with any new documents
 4. Add a breadcrumb navigation to each document
 
-Last Updated: May 5, 2025
+Last Updated: May 6, 2025

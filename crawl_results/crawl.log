@@ -1,0 +1,12 @@
+[2025-05-06T19:13:19.915Z] [INFO] Starting crawl of https://www.windowworldla.com
+[2025-05-06T19:13:19.925Z] [INFO] Progress: 0/100 pages crawled, 0 URLs in queue
+[2025-05-06T19:13:19.929Z] [INFO] Crawl statistics saved to C:\Users\IvoD\repos\WindowsDoorsWebsiteReact\crawl_results\crawl_stats.json
+[2025-05-06T19:13:19.930Z] [INFO] URLs saved to C:\Users\IvoD\repos\WindowsDoorsWebsiteReact\crawl_results\urls.json
+[2025-05-06T19:13:19.932Z] [INFO] Sitemap generated and saved to C:\Users\IvoD\repos\WindowsDoorsWebsiteReact\crawl_results\sitemap.xml
+[2025-05-06T19:13:19.932Z] [INFO] Crawl completed. Processed 0 pages.
+[2025-05-06T19:22:27.803Z] [INFO] Starting crawl of https://www.windowworldla.com
+[2025-05-06T19:22:27.823Z] [INFO] Progress: 0/100 pages crawled, 0 URLs in queue
+[2025-05-06T19:22:27.828Z] [INFO] Crawl statistics saved to C:\Users\IvoD\repos\WindowsDoorsWebsiteReact\crawl_results\crawl_stats.json
+[2025-05-06T19:22:27.831Z] [INFO] URLs saved to C:\Users\IvoD\repos\WindowsDoorsWebsiteReact\crawl_results\urls.json
+[2025-05-06T19:22:27.832Z] [INFO] Sitemap generated and saved to C:\Users\IvoD\repos\WindowsDoorsWebsiteReact\crawl_results\sitemap.xml
+[2025-05-06T19:22:27.833Z] [INFO] Crawl completed. Processed 0 pages.

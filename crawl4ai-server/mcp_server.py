@@ -45,8 +45,7 @@ os.makedirs(CACHE_DIR, exist_ok=True)
 # Global browser configuration
 browser_config = BrowserConfig(
     headless=True,  # Run browser in headless mode
-    verbose=True,   # Enable verbose logging
-    base_directory=CACHE_DIR  # Set cache directory
+    verbose=True    # Enable verbose logging
 )
 
 # Initialize FastAPI app
@@ -138,9 +137,9 @@ async def handle_mcp_request(request_data: Dict[str, Any]) -> Dict[str, Any]:
     try:
         function_name = request_data.get("function")
         parameters = request_data.get("parameters", {})
-        
+
         logger.info(f"Received MCP request: {function_name}")
-        
+
         if function_name == "crawl":
             return await handle_crawl(parameters)
         elif function_name == "extract_urls":
@@ -151,7 +150,7 @@ async def handle_mcp_request(request_data: Dict[str, Any]) -> Dict[str, Any]:
             return {
                 "error": f"Unsupported function: {function_name}"
             }
-    
+
     except Exception as e:
         logger.error(f"Error processing MCP request: {str(e)}", exc_info=True)
         return {
@@ -165,12 +164,12 @@ async def handle_crawl(parameters: Dict[str, Any]) -> Dict[str, Any]:
     extract_links = parameters.get("extract_links", True)
     extract_images = parameters.get("extract_images", True)
     max_pages = parameters.get("max_pages", 1)
-    
+
     if not url:
         return {"error": "url is required"}
-    
+
     logger.info(f"Crawling {url} (screenshot: {take_screenshot})")
-    
+
     # Configure the crawler
     run_config = CrawlerRunConfig(
         cache_mode=CacheMode.ENABLED,
@@ -190,13 +189,13 @@ async def handle_crawl(parameters: Dict[str, Any]) -> Dict[str, Any]:
         # Set max pages for multi-page crawls
         max_pages=max_pages
     )
-    
+
     async with AsyncWebCrawler(config=browser_config) as crawler:
         result = await crawler.arun(
             url=url,
             config=run_config
         )
-        
+
         # Process the result
         response = {
             "url": result.url,
@@ -205,7 +204,7 @@ async def handle_crawl(parameters: Dict[str, Any]) -> Dict[str, Any]:
             "markdown": result.markdown.fit_markdown if hasattr(result.markdown, "fit_markdown") else str(result.markdown),
             "success": result.success
         }
-        
+
         # Add links if extracted
         if extract_links and result.links and "all" in result.links:
             response["links"] = [
@@ -213,7 +212,7 @@ async def handle_crawl(parameters: Dict[str, Any]) -> Dict[str, Any]:
                 for link in result.links["all"]
                 if "url" in link
             ]
-        
+
         # Add images if extracted
         if extract_images and result.media and "images" in result.media:
             response["images"] = [
@@ -221,56 +220,56 @@ async def handle_crawl(parameters: Dict[str, Any]) -> Dict[str, Any]:
                 for img in result.media["images"]
                 if "url" in img
             ]
-        
+
         # Add screenshot if taken
         if take_screenshot and result.screenshot:
             # Generate a filename based on the URL
             filename = f"{base64.urlsafe_b64encode(url.encode()).decode()[:10]}.png"
             filepath = os.path.join(SCREENSHOT_DIR, filename)
-            
+
             # Save the screenshot to disk
             with open(filepath, "wb") as f:
                 f.write(base64.b64decode(result.screenshot))
-            
+
             # Add screenshot info to response
             response["screenshot"] = {
                 "path": filepath,
                 "filename": filename,
                 "data_uri": f"data:image/png;base64,{result.screenshot[:100]}..." # Truncated for brevity
             }
-        
+
         return response
 
 async def handle_extract_urls(parameters: Dict[str, Any]) -> Dict[str, Any]:
     """Handle the extract_urls function."""
     base_url = parameters.get("base_url")
     max_pages = parameters.get("max_pages", 100)
-    
+
     if not base_url:
         return {"error": "base_url is required"}
-    
+
     logger.info(f"Extracting URLs from {base_url} (max pages: {max_pages})")
-    
+
     # Configure the crawler
     run_config = CrawlerRunConfig(
         cache_mode=CacheMode.ENABLED,
         extract_links=True,
         max_pages=max_pages
     )
-    
+
     async with AsyncWebCrawler(config=browser_config) as crawler:
         result = await crawler.arun(
             url=base_url,
             config=run_config
         )
-        
+
         # Extract URLs from the links dictionary
         urls = []
         if result.links and "all" in result.links:
             for link_info in result.links["all"]:
                 if "url" in link_info:
                     urls.append(link_info["url"])
-        
+
         return {
             "urls": urls,
             "count": len(urls)
@@ -280,31 +279,31 @@ async def handle_extract_structure(parameters: Dict[str, Any]) -> Dict[str, Any]
     """Handle the extract_structure function."""
     base_url = parameters.get("base_url")
     max_depth = parameters.get("max_depth", 2)
-    
+
     if not base_url:
         return {"error": "base_url is required"}
-    
+
     logger.info(f"Extracting structure from {base_url} (max depth: {max_depth})")
-    
+
     # Configure the crawler
     run_config = CrawlerRunConfig(
         cache_mode=CacheMode.ENABLED,
         extract_links=True,
         max_depth=max_depth
     )
-    
+
     async with AsyncWebCrawler(config=browser_config) as crawler:
         result = await crawler.arun(
             url=base_url,
             config=run_config
         )
-        
+
         # Process links to create a site structure
         structure = {
             "navigation": [],
             "sections": []
         }
-        
+
         if result.links and "all" in result.links:
             # Group links by their path depth
             nav_links = []
@@ -313,7 +312,7 @@ async def handle_extract_structure(parameters: Dict[str, Any]) -> Dict[str, Any]
                     # Extract path from URL
                     path = link_info["url"][len(base_url):].strip("/")
                     depth = len(path.split("/")) if path else 0
-                    
+
                     # Main navigation links are typically at depth 1
                     if depth == 1:
                         nav_links.append({
@@ -321,9 +320,9 @@ async def handle_extract_structure(parameters: Dict[str, Any]) -> Dict[str, Any]
                             "text": link_info.get("text", path),
                             "path": path
                         })
-            
+
             structure["navigation"] = nav_links
-        
+
         return structure
 
 # SSE endpoint for MCP
@@ -336,19 +335,19 @@ async def sse_endpoint(request: Request):
             "event": "tools",
             "data": json.dumps(TOOL_SCHEMA)
         }
-        
+
         # Keep the connection alive
         while True:
             if await request.is_disconnected():
                 break
-            
+
             # Send a heartbeat every 30 seconds
             await asyncio.sleep(30)
             yield {
                 "event": "heartbeat",
                 "data": json.dumps({"timestamp": asyncio.get_event_loop().time()})
             }
-    
+
     return EventSourceResponse(event_generator())
 
 # MCP request endpoint
@@ -376,6 +375,6 @@ async def health_check():
 if __name__ == "__main__":
     # Get port from environment variable or use default
     port = int(os.environ.get("PORT", 8051))
-    
+
     logger.info(f"Starting Crawl4AI MCP server on port {port}")
     uvicorn.run(app, host="0.0.0.0", port=port)

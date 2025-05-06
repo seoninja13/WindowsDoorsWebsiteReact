@@ -7,7 +7,9 @@ This document provides a comprehensive map of all documentation in the Windows D
 - [README.md](../README.md) - Main project documentation and entry point
 - [Project Overview](./overview.md) - Overview of the project and its goals
 - [Crawl4AI Analysis](./crawl4ai-analysis.md) - Analysis of Window World LA website structure
+- [Crawl4AI Completion Analysis](./crawl4ai-completion-analysis.md) - Analysis of completed Crawl4AI process
 - [UI Components and Design System](./ui-components.md) - Documentation of UI components and design system
+- [Logging System](./logging-system.md) - Comprehensive logging system documentation
 - [Architecture](./architecture/index.md) - System architecture and component diagrams
 - [API Documentation](./api-docs.md) - API endpoints and usage
 - [Deployment Guide](./deployment-guide.md) - Deployment instructions and configuration
@@ -30,11 +32,14 @@ This document provides a comprehensive map of all documentation in the Windows D
 
 ## Integration Documentation
 
+- [Integrations Overview](./integrations/index.md) - Overview of all integrations
+- [Supabase MCP Server](./integrations/supabase-mcp-server.md) - Supabase MCP server integration
+- [Context7 MCP Server](./integrations/context7-mcp-server.md) - Context7 MCP server integration
+- [Crawl4AI MCP Server](./integrations/crawl4ai-mcp-server.md) - Crawl4AI MCP server integration
 - [CMS Integration](./integrations/cms-integration.md) - Content management system integration
 - [Analytics Integration](./integrations/analytics-integration.md) - Analytics integration
 - [Form Submission Handling](./integrations/form-submission.md) - Form submission handling
 - [Image Optimization](./integrations/image-optimization.md) - Image optimization strategies
-- [Web Scraping](./web-scraping.md) - Web scraping functionality using Context7 MCP server
 
 ## Testing Documentation
 
@@ -51,12 +56,21 @@ This document provides a comprehensive map of all documentation in the Windows D
 - [Sitemap Generation](./architecture/sitemap-generation.md) - Sitemap generation and configuration
 - [Metadata Management](./architecture/metadata-management.md) - Metadata management strategy
 
+## Web Scraping Documentation
+
+- [Web Scraping](./web-scraping.md) - Web scraping functionality
+- [Crawl4AI Analysis](./crawl4ai-analysis.md) - Analysis of Window World LA website structure
+- [Crawl4AI Completion Analysis](./crawl4ai-completion-analysis.md) - Analysis of completed Crawl4AI process
+- [Crawl4AI Screenshot Architecture](./architecture/crawl4ai-screenshot-architecture.md) - Screenshot functionality in Crawl4AI
+- [Project Structure](./project-structure.md) - Project directory structure and organization
+
 ## Project Status & Progress
 
 - [Project Status](./planning/project-status.md) - Current project status
 - [Development Progress](./planning/development-progress.md) - Tracking of completed features
 - [Next Steps](./planning/next-steps.md) - Upcoming development priorities
-- [Daily Development Logs](./daily-log.md) - Daily development updates
+- [Daily Development Logs](./daily-logs/index.md) - Daily development updates
+- [Documentation Updates](./documentation-updates.md) - Summary of recent documentation updates
 
 ## Troubleshooting & Maintenance
 
@@ -64,6 +78,7 @@ This document provides a comprehensive map of all documentation in the Windows D
 - [Maintenance Guide](./guides/maintenance-guide.md) - Routine maintenance tasks
 - [Performance Optimization](./guides/performance-optimization.md) - Performance optimization techniques
 - [Deployment Checklist](./processes/deployment-checklist.md) - Pre-deployment checklist
+- [Logging and Monitoring](./logging-system.md) - Logging and monitoring system
 
 ## Templates & Standards
 
@@ -72,4 +87,4 @@ This document provides a comprehensive map of all documentation in the Windows D
 - [Documentation Standards](./guides/documentation-standards.md) - Documentation standards
 - [Code Standards](./guides/code-standards.md) - Code standards and best practices
 
-Last Updated: May 5, 2025
+Last Updated: May 6, 2025

@@ -100,6 +100,10 @@ The crawler script saves the extracted data to the `public/crawled-data` directo
 - `site-structure.json`: Contains information about the site structure and navigation
 - `urls.txt`: Contains a list of all URLs
 - `sitemap.xml`: Contains an XML sitemap
+- `screenshots/`: Directory containing screenshots of all pages
+- `crawl-stats.json`: Contains statistics about the crawl process
+
+As of May 6, 2025, the crawler has successfully completed a comprehensive crawl of the Window World LA website, extracting 199 pages, taking 199 screenshots, and identifying 656 UI components. For detailed information about the completed crawl, see the [Crawl4AI Completion Analysis](./crawl4ai-completion-analysis.md) document.
 
 ### API Routes
 
@@ -210,6 +214,8 @@ When creating a 100% exact clone of the Window World LA website, keep the follow
 ## Related Documentation
 
 - [Crawl4AI Analysis](./crawl4ai-analysis.md)
+- [Crawl4AI Completion Analysis](./crawl4ai-completion-analysis.md)
+- [Crawl4AI Screenshot Architecture](./architecture/crawl4ai-screenshot-architecture.md)
 - [UI Components and Design System](./ui-components.md)
 - [Project Tasks](./project-tasks.md)
 - [Priority List](./priority-list.md)
@@ -217,4 +223,4 @@ When creating a 100% exact clone of the Window World LA website, keep the follow
 - [Data Flow](./architecture/data-flow.md)
 - [New Developer Guide](./guides/new-developer-guide.md)
 
-Last Updated: May 8, 2025
+Last Updated: May 6, 2025

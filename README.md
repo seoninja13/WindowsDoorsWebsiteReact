@@ -8,6 +8,25 @@ The project uses React.js for the frontend and Next.js for the backend, with Tai
 
 Our implementation ensures the clone is fully accessible, SEO optimized, and integrates seamlessly with our current tech stack.
 
+### Current Status
+
+We have made significant progress in setting up the infrastructure and extracting data from the Window World LA website:
+
+1. Set up the Next.js project with TypeScript and Tailwind CSS
+2. Created a comprehensive logging system using Supabase
+3. Implemented web scraping functionality to extract data from the Window World LA website
+4. Successfully completed a comprehensive crawl of the Window World LA website:
+   - Crawled 199 pages
+   - Captured 199 screenshots
+   - Identified 656 UI components
+   - Found 547 images
+   - Discovered 6,115 links
+5. Created utility scripts for various tasks
+6. Created SQL scripts for database setup
+7. Created comprehensive documentation
+
+The next phase will focus on using the extracted data to create an exact clone of the website using React.js and Next.js.
+
 ## Documentation Structure
 
 This project follows a pyramid documentation structure with this README as the single entry point. All documentation is organized hierarchically as shown in the diagram below:
@@ -59,7 +78,7 @@ graph TD
 
 > **Note**: This diagram represents the logical structure of our documentation. The actual file paths may differ but are being standardized to follow this hierarchy.
 
-For a comprehensive map of all documentation, see the [Documentation Map](./docs/documentation-map.md) and the [Daily Log](./docs/daily-log.md). For all project tasks and their priorities, see the [Project Tasks](./docs/project-tasks.md) and [Priority Task List](./docs/priority-list.md).
+For a comprehensive map of all documentation, see the [Documentation Map](./docs/documentation-map.md) and the [Daily Logs](./docs/daily-logs/). For all project tasks and their priorities, see the [Project Tasks](./docs/project-tasks.md) and [Priority List](./docs/priority-list.md). For a comprehensive overview of the project directory structure and the work completed so far, see the [Project Structure](./docs/project-structure.md).
 
 ## Documentation Directory
 
@@ -96,7 +115,23 @@ All detailed documentation is organized in the [Documentation Directory](./docs/
    npm install
    ```
 
-2. **Development**
+2. **Environment Setup**
+
+   Create a `.env.local` file in the root directory with the following environment variables:
+
+   ```
+   NEXT_PUBLIC_SUPABASE_URL=your-supabase-url
+   NEXT_PUBLIC_SUPABASE_ANON_KEY=your-supabase-anon-key
+   ```
+
+3. **Supabase Setup**
+
+   ```bash
+   # Set up the logging tables in Supabase
+   npm run setup:logging
+   ```
+
+4. **Development**
 
    ```bash
    # Start Next.js development server only
@@ -109,16 +144,26 @@ All detailed documentation is organized in the [Documentation Directory](./docs/
    npm run dev:with-context7
    ```
 
-3. **Web Scraping**
+5. **Web Scraping**
 
    ```bash
    # Run the crawler script to extract content from Window World LA website
    npm run crawl
 
-   # Or use the crawler admin interface at http://localhost:3000/admin/crawler
+   # Run a comprehensive crawl
+   npm run crawl:comprehensive
+
+   # Run a simplified crawl
+   npm run crawl:simple
+
+   # Analyze crawl results
+   npm run analyze:crawl
+
+   # Check logs in Supabase
+   npm run check:logs
    ```
 
-4. **Production Build**
+6. **Production Build**
 
    ```bash
    npm run build
@@ -129,20 +174,20 @@ All detailed documentation is organized in the [Documentation Directory](./docs/
 
 If you encounter any issues:
 
-1. Make sure you're using the correct Node.js version
-2. Try clearing your browser cache
-3. Check the console for any JavaScript errors
-4. See the [Project Tasks](./docs/project-tasks.md) for planned improvements
+1. Make sure you're using the correct Node.js version (18.x or higher)
+2. Verify that your Supabase environment variables are set correctly
+3. Try clearing your browser cache
+4. Check the console for any JavaScript errors
+5. Check the logs in Supabase using `npm run check:logs`
+6. See the [Project Tasks](./docs/project-tasks.md) for planned improvements
 
 ## Tech Stack
 
-- Next.js with App Router
-- TypeScript
-- Tailwind CSS
-- React
-- Context7 MCP Server for web scraping
-- Cheerio for HTML parsing
-- Axios for HTTP requests
+- **Frontend**: Next.js 15.3.1 with App Router, React 18.2.0, TypeScript, Tailwind CSS
+- **Web Scraping**: Crawl4AI, Context7 MCP Server, Cheerio, Axios, Puppeteer
+- **API Integrations**: Google Maps API, Form submission APIs
+- **Data Storage**: Supabase for logging and data storage
+- **Build Optimization**: ISR with 6-month cache (revalidate: 86400)
 
 ## Development Workflow
 
