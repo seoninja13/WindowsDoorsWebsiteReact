@@ -12,6 +12,7 @@
     "crawl": "node scripts/crawl-website.js"
   },
   "dependencies": {
+    "@supabase/supabase-js": "^2.49.4",
     "axios": "^1.6.0",
     "cheerio": "^1.0.0-rc.12",
     "class-variance-authority": "^0.7.1",

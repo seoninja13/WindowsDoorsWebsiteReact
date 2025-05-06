@@ -35,3 +35,9 @@ next-env.d.ts
 # IDE
 .idea
 .vscode
+
+# Sample documentation (reference only)
+/SAMPLE-documentation/
+
+# Local Netlify folder
+.netlify

@@ -1,0 +1,5 @@
+2025-05-05 20:03:41,156 - INFO - Starting deep crawl of https://www.windowworldla.com (max pages: 10)
+2025-05-05 20:03:42,118 - INFO - Crawling page: https://www.windowworldla.com
+2025-05-05 20:03:48,739 - INFO - Screenshot saved to: crawl_results\screenshots\home\screenshot.png
+2025-05-05 20:03:48,742 - INFO - Content saved for: https://www.windowworldla.com
+2025-05-05 20:03:51,951 - INFO - Crawl completed. Pages crawled: 1

@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "crawl4ai-rag": {
+      "transport": "sse",
+      "serverUrl": "http://localhost:8051/sse"
+    }
+  }
+}
