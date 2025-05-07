@@ -1,7 +1,5 @@
 import './globals.css';
 import type { Metadata } from 'next';
-import Header from '@/components/layout/Header';
-import Footer from '@/components/layout/Footer';
 import { Montserrat, Open_Sans } from 'next/font/google';
 
 // Load fonts
@@ -41,9 +39,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${montserrat.variable} ${openSans.variable}`}>
       <body className="font-open-sans text-ww-dark-gray">
-        <Header />
-        <main>{children}</main>
-        <Footer />
+        {children}
       </body>
     </html>
   );

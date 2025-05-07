@@ -12,6 +12,8 @@
     "all-mcp": "node start-all-mcp.js",
     "dev:with-context7": "concurrently \"npm run dev\" \"npm run context7\"",
     "dev:with-all-mcp": "concurrently \"npm run dev\" \"npm run all-mcp\"",
+    "netlify:dev": "netlify dev",
+    "netlify:dev:with-context7": "concurrently \"netlify dev\" \"npm run context7\"",
     "crawl": "node scripts/crawl-website.js",
     "crawl:comprehensive": "node scripts/run-comprehensive-crawl.js",
     "crawl:simple": "node scripts/simple-crawl.js",
@@ -23,7 +25,11 @@
     "setup:logging": "node scripts/direct-sql.js sql/logging-tables.sql",
     "execute:sql": "node scripts/execute-sql.js",
     "direct:sql": "node scripts/direct-sql.js",
-    "generate:sql": "node scripts/generate-sql.js"
+    "generate:sql": "node scripts/generate-sql.js",
+    "setup:db": "node scripts/execute-schema.js",
+    "populate:db": "node scripts/populate-database.js",
+    "db:reset": "npm run setup:db && npm run populate:db",
+    "test:db": "node scripts/test-database-schema.js"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.49.4",

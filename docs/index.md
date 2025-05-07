@@ -5,6 +5,7 @@ This directory contains all the documentation for the Windows Doors Website Reac
 ## Documentation Categories
 
 - [Architecture](./architecture/index.md) - System design and architecture documentation
+- [Components](./components/index.md) - UI component documentation
 - [Features](./features/index.md) - Feature implementation documentation
 - [Guides](./guides/index.md) - Developer guides and tutorials
 - [Integrations](./integrations/index.md) - Integration documentation for external services
@@ -21,10 +22,13 @@ This directory contains all the documentation for the Windows Doors Website Reac
 - [Crawl4AI Analysis](./crawl4ai-analysis.md) - Analysis of Window World LA website structure
 - [Crawl4AI Completion Analysis](./crawl4ai-completion-analysis.md) - Analysis of completed Crawl4AI process
 - [UI Components and Design System](./ui-components.md) - Documentation of UI components and design system
+- [Component Documentation](./components/index.md) - Detailed documentation of individual UI components
+- [Testing Documentation](./testing/index.md) - Comprehensive testing documentation
 - [Web Scraping](./web-scraping.md) - Web scraping functionality using Context7 MCP server
 - [Logging System](./logging-system.md) - Comprehensive logging system documentation
 - [Documentation Map](./documentation-map.md) - Comprehensive map of all documentation
-- [Documentation Updates](./documentation-updates.md) - Summary of recent documentation updates
+- [Documentation Updates (November 15, 2023)](./documentation-updates-2023-11-15.md) - Summary of recent documentation updates
+- [Documentation Updates (May 6, 2025)](./documentation-updates.md) - Previous documentation updates
 - [Daily Logs](./daily-logs/index.md) - Daily development updates
 - [Project Structure](./project-structure.md) - Project directory structure and organization
 - [Project Tasks](./project-tasks.md) - Current project tasks and priorities
@@ -38,8 +42,10 @@ If you're new to the project, we recommend starting with the following documents
 2. [Requirements](./requirements.md) - To understand the project requirements
 3. [Crawl4AI Analysis](./crawl4ai-analysis.md) - To understand the Window World LA website structure
 4. [UI Components and Design System](./ui-components.md) - To understand the UI implementation
-5. [Web Scraping](./web-scraping.md) - To understand the web scraping functionality
-6. [New Developer Guide](./guides/new-developer-guide.md) - For step-by-step setup instructions
+5. [Component Documentation](./components/index.md) - To understand individual UI components
+6. [Testing Documentation](./testing/index.md) - To understand the testing approach
+7. [Web Scraping](./web-scraping.md) - To understand the web scraping functionality
+8. [New Developer Guide](./guides/new-developer-guide.md) - For step-by-step setup instructions
 
 ## Contributing to Documentation
 

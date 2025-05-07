@@ -17,6 +17,7 @@ module.exports = {
         'ww-gray': '#e0e0e0', // Medium gray
         'ww-dark-gray': '#333333', // Dark gray for text
         'ww-footer-bg': '#1a1a1a', // Footer background color
+        'ww-green': '#00a651', // Window World green
       },
       fontFamily: {
         montserrat: ['Montserrat', 'sans-serif'],
@@ -44,6 +45,9 @@ module.exports = {
       spacing: {
         'ww-section': '80px', // Standard section spacing
         'ww-container': '1200px', // Max container width
+      },
+      maxWidth: {
+        'ww-container': '1200px', // Custom Window World container width
       },
       container: {
         center: true,

@@ -6,6 +6,6 @@
   "crawl_time": "2025-05-05T20:03:48.740293",
   "links": [],
   "images": [],
-  "screenshot_file": "crawl_results\\screenshots\\home\\screenshot.png",
+  "screenshot_file": "public\\crawled-data\\screenshots\\home\\screenshot.png",
   "has_screenshot": true
 }

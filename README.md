@@ -23,7 +23,8 @@ We have made significant progress in setting up the infrastructure and extractin
    - Discovered 6,115 links
 5. Created utility scripts for various tasks
 6. Created SQL scripts for database setup
-7. Created comprehensive documentation
+7. Designed and implemented a comprehensive database schema for storing website content
+8. Created comprehensive documentation
 
 The next phase will focus on using the extracted data to create an exact clone of the website using React.js and Next.js.
 
@@ -106,6 +107,7 @@ All detailed documentation is organized in the [Documentation Directory](./docs/
 - [SEO Structure](./docs/architecture/seo-structure.md) - SEO optimization strategy
 - [Data Flow](./docs/architecture/data-flow.md) - How data flows through the system
 - [Component Architecture](./docs/architecture/component-architecture.md) - React component architecture
+- [Database Schema](./docs/database-schema.md) - Database schema documentation
 
 ## Quick Start
 
@@ -129,6 +131,18 @@ All detailed documentation is organized in the [Documentation Directory](./docs/
    ```bash
    # Set up the logging tables in Supabase
    npm run setup:logging
+
+   # Set up the database schema
+   npm run setup:db
+
+   # Populate the database with data from the crawled website
+   npm run populate:db
+
+   # Or run both database commands in sequence
+   npm run db:reset
+
+   # Test the database schema
+   npm run test:db
    ```
 
 4. **Development**
@@ -186,7 +200,7 @@ If you encounter any issues:
 - **Frontend**: Next.js 15.3.1 with App Router, React 18.2.0, TypeScript, Tailwind CSS
 - **Web Scraping**: Crawl4AI, Context7 MCP Server, Cheerio, Axios, Puppeteer
 - **API Integrations**: Google Maps API, Form submission APIs
-- **Data Storage**: Supabase for logging and data storage
+- **Data Storage**: Supabase for database, logging, and content management
 - **Build Optimization**: ISR with 6-month cache (revalidate: 86400)
 
 ## Development Workflow

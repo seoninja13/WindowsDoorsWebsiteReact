@@ -9,6 +9,8 @@ This document provides a comprehensive map of all documentation in the Windows D
 - [Crawl4AI Analysis](./crawl4ai-analysis.md) - Analysis of Window World LA website structure
 - [Crawl4AI Completion Analysis](./crawl4ai-completion-analysis.md) - Analysis of completed Crawl4AI process
 - [UI Components and Design System](./ui-components.md) - Documentation of UI components and design system
+- [Component Documentation](./components/index.md) - Detailed documentation of individual UI components
+- [Testing Documentation](./testing/index.md) - Comprehensive testing documentation
 - [Logging System](./logging-system.md) - Comprehensive logging system documentation
 - [Architecture](./architecture/index.md) - System architecture and component diagrams
 - [API Documentation](./api-docs.md) - API endpoints and usage
@@ -21,6 +23,17 @@ This document provides a comprehensive map of all documentation in the Windows D
 - [Component Development](./features/component-development.md) - Component development guidelines
 - [State Management](./features/state-management.md) - State management patterns
 - [Styling Guidelines](./features/styling-guidelines.md) - Tailwind CSS usage and styling patterns
+
+## UI Component Documentation
+
+- [Components Overview](./components/index.md) - Overview of all UI components
+- [Header Component](./components/Header.md) - Header component documentation
+- [HeroBanner Component](./components/HeroBanner.md) - HeroBanner component documentation
+- [ProductCard Component](./components/ProductCard.md) - ProductCard component documentation
+- [TestimonialSection Component](./components/TestimonialSection.md) - TestimonialSection component documentation
+- [ProductFeatures Component](./components/ProductFeatures.md) - ProductFeatures component documentation
+- [ServiceAreas Component](./components/ServiceAreas.md) - ServiceAreas component documentation
+- [FreeEstimateForm Component](./components/FreeEstimateForm.md) - FreeEstimateForm component documentation
 
 ## Feature Documentation
 
@@ -43,6 +56,8 @@ This document provides a comprehensive map of all documentation in the Windows D
 
 ## Testing Documentation
 
+- [Testing Overview](./testing/index.md) - Overview of testing approach and methodology
+- [Complete Home Page Test](./testing/complete-home-page.md) - Documentation for the complete homepage test
 - [Testing Workflow](./testing/testing-workflow.md) - Testing processes and guidelines
 - [Testing Guide](./testing/testing-guide.md) - Detailed testing instructions
 - [Component Testing](./testing/component-testing.md) - Component testing guidelines
@@ -87,4 +102,4 @@ This document provides a comprehensive map of all documentation in the Windows D
 - [Documentation Standards](./guides/documentation-standards.md) - Documentation standards
 - [Code Standards](./guides/code-standards.md) - Code standards and best practices
 
-Last Updated: May 6, 2025
+Last Updated: November 15, 2023
